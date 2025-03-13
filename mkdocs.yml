@@ -1,0 +1,68 @@
+site_name: URL Shortener Documentation
+site_description: A modern URL shortening service built with FastAPI and SQLite.
+repo_url: https://github.com/thealper2/fastapi-url-shortener
+repo_name: thealper2/fastapi-url-shortener
+
+theme:
+  name: material
+  language: en
+  palette:
+    primary: indigo
+    accent: indigo
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.indexes
+    - content.code.annotate
+    - content.tabs.link
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [.]
+          options:
+            show_source: true
+            show_category_heading: true
+            show_root_heading: true
+            show_if_no_docstring: false
+            heading_level: 3
+            members_order: source
+            docstring_style: google
+            docstring_section_style: table
+            filters: ["!^_"]
+            merge_init_into_class: true
+            inherited_members: true
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed
+  - pymdownx.tasklist
+  - admonition
+  - toc:
+      permalink: true
+
+nav:
+  - Main Page: index.md
+  - API Reference:
+    - Models: api/models.md
+    - Services: api/services.md
+    - Database: api/database.md
+    - Dependencies: api/dependencies.md
+    - Routes:
+      - Overview: api/routes/index.md
+      - Root: api/routes/root.md
+      - URL: api/routes/url.md
+      - Admin: api/routes/admin.md
+  - Usage: 
+    - Getting Started: guide/getting-started.md
+    - API: guide/api-usage.md
+  - Development: 
+    - Contributing: development/contributing.md
+    - Changelog: development/changelog.md
